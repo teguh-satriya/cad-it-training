@@ -8,7 +8,7 @@ namespace ListAsset.DataAccess.Models
 {
     public class Country
     {
-        public int CountryId { get; set; } 
+        public Guid CountryId { get; set; } 
         public string CountryName { get; set; }
     }
 }

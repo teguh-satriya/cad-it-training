@@ -12,6 +12,6 @@ namespace ListAsset.DataAccess.Contracts
         public void Delete(T _object);
         public void Update(T _object);
         public IEnumerable<T> GetAll();
-        public T GetById(int Id);
+        public T GetById(Guid? Id);
     }
 }

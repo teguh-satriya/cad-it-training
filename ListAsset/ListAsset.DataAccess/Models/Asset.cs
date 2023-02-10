@@ -8,13 +8,13 @@ namespace ListAsset.DataAccess.Models
 {
     public class Asset
     {
-        public int AssetId { get; set; }
+        public Guid AssetId { get; set; }
         public string AssetCode { get; set; }
         public string AssetName { get; set; }
         public string AssetType { get; set; }
         public int Quantity { get; set; }
 
-        public int CountryId { get; set; }
+        public Guid CountryId { get; set; }
         public virtual Country Country { get; set; }
     }
 }
