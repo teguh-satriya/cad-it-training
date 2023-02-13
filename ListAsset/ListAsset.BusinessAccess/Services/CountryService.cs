@@ -16,7 +16,7 @@ namespace ListAsset.BusinessAccess.Services
             _repository = repository;
         }
 
-        public IEnumerable<Country> GetAllUser()
+        public IEnumerable<Country> GetAll()
         {
             try
             {

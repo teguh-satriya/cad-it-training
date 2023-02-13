@@ -1,0 +1,71 @@
+﻿@page "/asset"
+
+<PageTitle>Weather forecast</PageTitle>
+
+@using ListAsset.DataAccess.Models
+@using ListAsset.ServerApp.Data
+@inject AssetServerService AssetService
+
+<h1>Asset</h1>
+
+<p>Fetch data Asset</p>
+
+<div class="row mb-3">
+    <div class="col-md-7">  
+       <NavLink href="/asset/create" class="btn btn-sm btn-success mb-2">Add User</NavLink>
+    </div>
+</div>
+
+@if (assets == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Type</th>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var asset in assets)
+            {
+                <tr>
+                    <td>@asset.AssetCode</td>
+                    <td>@asset.AssetType</td>
+                    <td>@asset.AssetName</td>
+                    <td>@asset.Quantity</td>
+                    <td style="white-space: nowrap">
+                         <NavLink href="@($"/asset/update/{asset.AssetId}")" class="oi oi-pencil text-warning mr-2 nounderline"></NavLink>
+
+                        <button @onclick="@(() => DeleteAsset(asset))" class=" btn btn-link oi oi-trash text-danger mr-1 nounderline">
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Asset>? assets;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        assets = AssetService.GetAssets();
+    }
+
+    private async void DeleteAsset(Asset _asset)
+    {
+        await AssetService.DeleteAsset(_asset.AssetId);
+        assets = AssetService.GetAssets();
+
+        StateHasChanged();
+    }
+}

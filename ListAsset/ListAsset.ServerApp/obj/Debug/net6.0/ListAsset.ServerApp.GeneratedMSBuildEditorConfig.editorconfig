@@ -9,53 +9,65 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ListAsset.ServerApp
 build_property.RootNamespace = ListAsset.ServerApp
-build_property.ProjectDir = C:\Users\tswib\source\repos\cad-it-training\ListAsset\ListAsset.ServerApp\
+build_property.ProjectDir = C:\Users\tswib\workspace\cad-it-training\ListAsset\ListAsset.ServerApp\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\tswib\source\repos\cad-it-training\ListAsset\ListAsset.ServerApp
+build_property.MSBuildProjectDirectory = C:\Users\tswib\workspace\cad-it-training\ListAsset\ListAsset.ServerApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/tswib/source/repos/cad-it-training/ListAsset/ListAsset.ServerApp/App.razor]
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tswib/source/repos/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/Assets/Create.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRzXENyZWF0ZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tswib/source/repos/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/Assets/Edit.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRzXEVkaXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tswib/source/repos/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/Assets/Form.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRzXEZvcm0ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tswib/source/repos/cad-it-training/ListAsset/ListAsset.ServerApp/Shared/SurveyPrompt.razor]
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/Assets/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXNzZXRzXEluZGV4LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/Counters/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlcnNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/FetchDatas/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhc1xJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/Home/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZVxJbmRleC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tswib/source/repos/cad-it-training/ListAsset/ListAsset.ServerApp/_Imports.razor]
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tswib/source/repos/cad-it-training/ListAsset/ListAsset.ServerApp/Shared/MainLayout.razor]
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-5d06nnxd4q
 
-[C:/Users/tswib/source/repos/cad-it-training/ListAsset/ListAsset.ServerApp/Shared/NavMenu.razor]
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-90kgt63x1x
 
-[C:/Users/tswib/source/repos/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/tswib/source/repos/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/_Host.cshtml]
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/tswib/source/repos/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/_Layout.cshtml]
+[C:/Users/tswib/workspace/cad-it-training/ListAsset/ListAsset.ServerApp/Pages/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0xheW91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj": {}
+    "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj": {
+    "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj",
         "projectName": "ListAsset.DataAccess",
-        "projectPath": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj",
+        "projectPath": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj",
         "packagesPath": "C:\\Users\\tswib\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -64,6 +64,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.2, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -82,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

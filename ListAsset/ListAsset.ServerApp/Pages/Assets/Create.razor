@@ -1,0 +1,30 @@
+﻿@page "/asset/create"
+@using ListAsset.DataAccess.Models
+@using ListAsset.ServerApp.Data
+@inject AssetServerService AssetService
+
+<h1>Create Asset</h1>
+<br/>
+
+<Form ButtonText="Create Asset" asset="@asset" loading="@loading"
+            OnValidSubmit="@CreateAsset" />
+
+@code {
+    bool loading = false;
+
+    ListAsset.DataAccess.Models.Asset asset = new ListAsset.DataAccess.Models.Asset();
+
+    async Task CreateAsset()
+    {
+        loading = true;
+        try
+        {
+            await AssetService.CreateAsset(asset);
+        }
+        catch (Exception ex)
+        {
+            loading = false;
+            StateHasChanged();
+        }
+    }
+}

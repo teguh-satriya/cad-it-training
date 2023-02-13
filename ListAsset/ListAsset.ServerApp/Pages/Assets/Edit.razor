@@ -1,0 +1,39 @@
+﻿@page "/asset/update/{id}"
+@using ListAsset.DataAccess.Models
+@using ListAsset.ServerApp.Data
+@inject AssetServerService AssetService
+
+<h1>Edit Asset</h1>
+<br/>
+
+<Form ButtonText="Edit Asset" asset="@asset" loading="@loading"
+      OnValidSubmit="@UpdateAsset" />
+
+@code {
+    bool loading = false;
+
+    [Parameter]
+    public string Id { get; set; }
+
+    Asset asset = new Asset();
+
+    protected async override Task OnParametersSetAsync()
+    {
+        asset = AssetService.GetAssetByID(Guid.Parse(Id));
+    }
+
+    async Task UpdateAsset()
+    {
+        loading = true;
+        try
+        {
+            await AssetService.UpdateAsset(asset);
+            
+        }
+        catch (Exception ex)
+        {
+            loading = false;
+            StateHasChanged();
+        }
+    }
+}

@@ -9,13 +9,13 @@ namespace ListAsset.DataAccess.Data
         {
         }
 
-        public virtual DbSet<Asset> Assets { get; set; }
-        public virtual DbSet<Country> Countries { get; set; }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
         }
-        
+
+        public DbSet<Asset> Assets { get; set; }
+        public DbSet<Country> Countries { get; set; }
+
     }
 }

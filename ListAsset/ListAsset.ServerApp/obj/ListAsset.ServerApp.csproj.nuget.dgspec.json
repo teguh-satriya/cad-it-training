@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\ListAsset.ServerApp.csproj": {}
+    "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\ListAsset.ServerApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.BusinessAccess\\ListAsset.BusinessAccess.csproj": {
+    "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.BusinessAccess\\ListAsset.BusinessAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.BusinessAccess\\ListAsset.BusinessAccess.csproj",
+        "projectUniqueName": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.BusinessAccess\\ListAsset.BusinessAccess.csproj",
         "projectName": "ListAsset.BusinessAccess",
-        "projectPath": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.BusinessAccess\\ListAsset.BusinessAccess.csproj",
+        "projectPath": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.BusinessAccess\\ListAsset.BusinessAccess.csproj",
         "packagesPath": "C:\\Users\\tswib\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.BusinessAccess\\obj\\",
+        "outputPath": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.BusinessAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,8 +33,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj"
+              "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj"
               }
             }
           }
@@ -64,18 +64,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj": {
+    "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj",
         "projectName": "ListAsset.DataAccess",
-        "projectPath": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj",
+        "projectPath": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj",
         "packagesPath": "C:\\Users\\tswib\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -128,6 +128,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.2, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -146,18 +154,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\ListAsset.ServerApp.csproj": {
+    "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\ListAsset.ServerApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\ListAsset.ServerApp.csproj",
+        "projectUniqueName": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\ListAsset.ServerApp.csproj",
         "projectName": "ListAsset.ServerApp",
-        "projectPath": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\ListAsset.ServerApp.csproj",
+        "projectPath": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\ListAsset.ServerApp.csproj",
         "packagesPath": "C:\\Users\\tswib\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\obj\\",
+        "outputPath": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -179,11 +187,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.BusinessAccess\\ListAsset.BusinessAccess.csproj": {
-                "projectPath": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.BusinessAccess\\ListAsset.BusinessAccess.csproj"
+              "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.BusinessAccess\\ListAsset.BusinessAccess.csproj": {
+                "projectPath": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.BusinessAccess\\ListAsset.BusinessAccess.csproj"
               },
-              "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj": {
-                "projectPath": "C:\\Users\\tswib\\source\\repos\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj"
+              "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj": {
+                "projectPath": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.DataAccess\\ListAsset.DataAccess.csproj"
               }
             }
           }
@@ -212,6 +220,16 @@
               "target": "Package",
               "version": "[7.0.2, )"
             },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.13, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
             "Radzen.Blazor": {
               "target": "Package",
               "version": "[4.6.8, )"
@@ -236,7 +254,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

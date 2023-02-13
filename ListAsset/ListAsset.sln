@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListAsset.ServerApp", "ListAsset.ServerApp\ListAsset.ServerApp.csproj", "{F27B9EAE-8A7D-44B3-90C9-CEE9246D6443}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListAsset.ServerApp", "ListAsset.ServerApp\ListAsset.ServerApp.csproj", "{F27B9EAE-8A7D-44B3-90C9-CEE9246D6443}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListAsset.DataAccess", "ListAsset.DataAccess\ListAsset.DataAccess.csproj", "{9D7D6FA7-2ABB-46DC-87DF-23FA1C038572}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListAsset.DataAccess", "ListAsset.DataAccess\ListAsset.DataAccess.csproj", "{9D7D6FA7-2ABB-46DC-87DF-23FA1C038572}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListAsset.BusinessAccess", "ListAsset.BusinessAccess\ListAsset.BusinessAccess.csproj", "{3AB2987B-1E0B-4A08-A637-023D4851F770}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListAsset.BusinessAccess", "ListAsset.BusinessAccess\ListAsset.BusinessAccess.csproj", "{3AB2987B-1E0B-4A08-A637-023D4851F770}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
