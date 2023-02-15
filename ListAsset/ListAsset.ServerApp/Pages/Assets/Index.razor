@@ -3,8 +3,8 @@
 <PageTitle>Weather forecast</PageTitle>
 
 @using ListAsset.DataAccess.Models
-@using ListAsset.ServerApp.Data
-@inject AssetServerService AssetService
+@using ListAsset.BusinessAccess.Services
+@inject AssetService AssetService
 
 <h1>Asset</h1>
 
@@ -12,7 +12,7 @@
 
 <div class="row mb-3">
     <div class="col-md-7">  
-       <NavLink href="/asset/create" class="btn btn-sm btn-success mb-2">Add User</NavLink>
+       <NavLink href="/asset/create" class="btn btn-sm btn-success mb-2">Add Asset</NavLink>
     </div>
 </div>
 
@@ -58,13 +58,13 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        assets = AssetService.GetAssets();
+        assets = await AssetService.ListAssets();
     }
 
     private async void DeleteAsset(Asset _asset)
     {
         await AssetService.DeleteAsset(_asset.AssetId);
-        assets = AssetService.GetAssets();
+        assets = await AssetService.ListAssets();
 
         StateHasChanged();
     }

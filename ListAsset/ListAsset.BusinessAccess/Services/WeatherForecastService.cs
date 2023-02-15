@@ -1,4 +1,6 @@
-namespace ListAsset.ServerApp.Data
+using ListAsset.DataAccess.Models;
+
+namespace ListAsset.BusinessAccess.Services
 {
     public class WeatherForecastService
     {

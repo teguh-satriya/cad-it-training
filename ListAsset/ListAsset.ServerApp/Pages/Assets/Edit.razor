@@ -1,12 +1,13 @@
 ﻿@page "/asset/update/{id}"
 @using ListAsset.DataAccess.Models
-@using ListAsset.ServerApp.Data
-@inject AssetServerService AssetService
+@using ListAsset.BusinessAccess.Services
+@inject AssetService AssetService
+@inject CountryService CountryService
 
 <h1>Edit Asset</h1>
 <br/>
 
-<Form ButtonText="Edit Asset" asset="@asset" loading="@loading"
+<Form ButtonText="Edit Asset" Asset="@asset" Loading="@loading" Countries="@countries" 
       OnValidSubmit="@UpdateAsset" />
 
 @code {
@@ -15,11 +16,13 @@
     [Parameter]
     public string Id { get; set; }
 
-    Asset asset = new Asset();
+    Asset? asset = new Asset();
+    List<Country> countries = new List<Country>();
 
     protected async override Task OnParametersSetAsync()
     {
-        asset = AssetService.GetAssetByID(Guid.Parse(Id));
+        asset = await AssetService.GetAsset(Guid.Parse(Id));
+        countries = await CountryService.ListCountries();
     }
 
     async Task UpdateAsset()
@@ -28,7 +31,7 @@
         try
         {
             await AssetService.UpdateAsset(asset);
-            
+            loading = false;
         }
         catch (Exception ex)
         {

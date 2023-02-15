@@ -1,18 +1,27 @@
 ﻿@page "/asset/create"
 @using ListAsset.DataAccess.Models
-@using ListAsset.ServerApp.Data
-@inject AssetServerService AssetService
+@using ListAsset.BusinessAccess.Services
+@inject AssetService AssetService
+@inject CountryService CountryService
 
 <h1>Create Asset</h1>
 <br/>
 
-<Form ButtonText="Create Asset" asset="@asset" loading="@loading"
-            OnValidSubmit="@CreateAsset" />
+<Form ButtonText="Create Asset" Asset="@asset" Loading="@loading" Countries="@countries"
+      OnValidSubmit="@CreateAsset" />
 
 @code {
     bool loading = false;
 
-    ListAsset.DataAccess.Models.Asset asset = new ListAsset.DataAccess.Models.Asset();
+    Asset asset = new Asset();
+    List<Country> countries = new List<Country>();
+
+    protected async override Task OnParametersSetAsync()
+    {
+        countries.Add(new Country { CountryId = Guid.Empty, CountryName = "---- Select Country -----" });
+        var countriesData = await CountryService.ListCountries();
+        countries.AddRange(countriesData);
+    }
 
     async Task CreateAsset()
     {
@@ -20,6 +29,7 @@
         try
         {
             await AssetService.CreateAsset(asset);
+            loading = false;
         }
         catch (Exception ex)
         {

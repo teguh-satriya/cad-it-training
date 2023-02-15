@@ -1,4 +1,4 @@
-namespace ListAsset.ServerApp.Data
+namespace ListAsset.DataAccess.Models
 {
     public class WeatherForecast
     {

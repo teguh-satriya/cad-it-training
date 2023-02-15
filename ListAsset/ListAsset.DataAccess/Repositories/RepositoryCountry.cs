@@ -1,6 +1,7 @@
 ﻿using ListAsset.DataAccess.Contracts;
 using ListAsset.DataAccess.Data;
 using ListAsset.DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 
@@ -9,27 +10,28 @@ namespace ListAsset.DataAccess.Repositories
     public class RepositoryCountry : IRepository<Country>
     {
         private readonly AssetDbContext _assetDbContext;
-        private readonly ILogger _logger;
 
-        public RepositoryCountry(ILogger<Country> logger)
+        AssetDbContext assetDbContext
         {
-            _logger = logger;
+            get
+            {
+                return this._assetDbContext;
+            }
         }
 
-        public async Task<Country> Create(Country country)
+        public RepositoryCountry(AssetDbContext context)
+        {
+            this._assetDbContext = context;
+        }
+
+        public async Task<List<Country>> GetAll()
         {
             try
             {
-                if (country != null)
-                {
-                    var obj = _assetDbContext.Add<Country>(country);
-                    await _assetDbContext.SaveChangesAsync();
-                    return obj.Entity;
-                }
-                else
-                {
-                    return null;
-                }
+                var obj = await assetDbContext.Countries.ToListAsync();
+
+                return obj;
+
             }
             catch (Exception)
             {
@@ -37,48 +39,13 @@ namespace ListAsset.DataAccess.Repositories
             }
         }
 
-        public void Delete(Country country)
-        {
-            try
-            {
-                if (country != null)
-                {
-                    var obj = _assetDbContext.Remove(country);
-                    if (obj != null)
-                    {
-                        _assetDbContext.SaveChangesAsync();
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public IEnumerable<Country> GetAll()
-        {
-            try
-            {
-                var obj = _assetDbContext.Countries.ToList();
-                if (obj != null)
-                    return obj;
-                else
-                    return null;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public Country GetById(Guid? Id)
+        public async Task<Country?> GetById(Guid? Id)
         {
             try
             {
                 if (Id != null)
                 {
-                    var Obj = _assetDbContext.Countries.FirstOrDefault(x => x.CountryId == Id);
+                    var Obj = await assetDbContext.Countries.FirstOrDefaultAsync(x => x.CountryId == Id);
                     if (Obj != null)
                         return Obj;
                     else
@@ -95,16 +62,60 @@ namespace ListAsset.DataAccess.Repositories
             }
         }
 
-        public void Update(Country country)
+        public async Task<Country> Create(Country country)
+        {
+            try
+            {
+                var obj = assetDbContext.Add(country);
+                await assetDbContext.SaveChangesAsync();
+                return obj.Entity;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async void Delete(Country country)
         {
             try
             {
                 if (country != null)
                 {
-                    var obj = _assetDbContext.Update(country);
+                    var obj = assetDbContext.Remove(country);
                     if (obj != null)
-                        _assetDbContext.SaveChanges();
+                    {
+                        await assetDbContext.SaveChangesAsync();
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<Country> Update(Country country)
+        {
+            try
+            {
+                var itemToUpdate = await assetDbContext.Countries
+                                    .Where(i => i.CountryId == country.CountryId)
+                                    .FirstOrDefaultAsync();
+
+                if (itemToUpdate == null)
+                {
+                    throw new Exception("Item not exist");
+                }
+
+                var entryToUpdate = assetDbContext.Entry(itemToUpdate);
+                entryToUpdate.CurrentValues.SetValues(country);
+                entryToUpdate.State = EntityState.Modified;
+
+                await assetDbContext.SaveChangesAsync();
+
+                return country;
             }
             catch (Exception)
             {

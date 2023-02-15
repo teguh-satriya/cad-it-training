@@ -1,34 +1,35 @@
 ﻿using ListAsset.DataAccess.Contracts;
 using ListAsset.DataAccess.Data;
 using ListAsset.DataAccess.Models;
-using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace ListAsset.DataAccess.Repositories
 {
     public class RepositoryAsset : IRepository<Asset>
     {
         private readonly AssetDbContext _assetDbContext;
-        private readonly ILogger _logger;
 
-        public RepositoryAsset(ILogger<Asset> logger)
+        AssetDbContext assetDbContext
         {
-            _logger = logger;
+            get
+            {
+                return this._assetDbContext;
+            }
         }
 
-        public async Task<Asset> Create(Asset asset)
+        public RepositoryAsset(AssetDbContext context)
+        {
+            this._assetDbContext= context;
+        }
+
+        public async Task<List<Asset>> GetAll()
         {
             try
             {
-                if (asset != null)
-                {
-                    var obj = _assetDbContext.Add<Asset>(asset);
-                    await _assetDbContext.SaveChangesAsync();
-                    return obj.Entity;
-                }
-                else
-                {
-                    return null;
-                }
+                var obj = await assetDbContext.Assets.ToListAsync();
+                
+                return obj;
+
             }
             catch (Exception)
             {
@@ -36,48 +37,13 @@ namespace ListAsset.DataAccess.Repositories
             }
         }
 
-        public void Delete(Asset asset)
-        {
-            try
-            {
-                if (asset != null)
-                {
-                    var obj = _assetDbContext.Remove(asset);
-                    if (obj != null)
-                    {
-                        _assetDbContext.SaveChangesAsync();
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public IEnumerable<Asset> GetAll()
-        {
-            try
-            {
-                var obj = _assetDbContext.Assets.ToList();
-                if (obj != null)
-                    return obj;
-                else
-                    return null;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public Asset GetById(Guid? Id)
+        public async Task<Asset?> GetById(Guid? Id)
         {
             try
             {
                 if (Id != null)
                 {
-                    var Obj = _assetDbContext.Assets.FirstOrDefault(x => x.AssetId == Id);
+                    var Obj = await assetDbContext.Assets.FirstOrDefaultAsync(x => x.AssetId == Id);
                     if (Obj != null)
                         return Obj;
                     else
@@ -94,16 +60,60 @@ namespace ListAsset.DataAccess.Repositories
             }
         }
 
-        public void Update(Asset asset)
+        public async Task<Asset> Create(Asset asset)
+        {
+            try
+            {
+                var obj = assetDbContext.Add<Asset>(asset);
+                await assetDbContext.SaveChangesAsync();
+                return obj.Entity;
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async void Delete(Asset asset)
         {
             try
             {
                 if (asset != null)
                 {
-                    var obj = _assetDbContext.Update(asset);
+                    var obj = assetDbContext.Remove(asset);
                     if (obj != null)
-                        _assetDbContext.SaveChanges();
+                    {
+                        await assetDbContext.SaveChangesAsync();
+                    }
                 }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public async Task<Asset> Update(Asset asset)
+        {
+            try
+            {
+                var itemToUpdate = await assetDbContext.Assets
+                                    .Where(i => i.AssetId == asset.AssetId)
+                                    .FirstOrDefaultAsync();
+
+                if (itemToUpdate == null)
+                {
+                    throw new Exception("Item not exist");
+                }
+
+                var entryToUpdate = assetDbContext.Entry(itemToUpdate);
+                entryToUpdate.CurrentValues.SetValues(asset);
+                entryToUpdate.State = EntityState.Modified;
+
+                await assetDbContext.SaveChangesAsync();
+
+                return asset;
             }
             catch (Exception)
             {

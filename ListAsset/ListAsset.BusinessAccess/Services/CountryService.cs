@@ -1,10 +1,5 @@
 ﻿using ListAsset.DataAccess.Contracts;
 using ListAsset.DataAccess.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ListAsset.BusinessAccess.Services
 {
@@ -16,11 +11,11 @@ namespace ListAsset.BusinessAccess.Services
             _repository = repository;
         }
 
-        public IEnumerable<Country> GetAll()
+        public async Task<List<Country>> ListCountries()
         {
             try
             {
-                return _repository.GetAll().ToList();
+                return await _repository.GetAll();
             }
             catch (Exception)
             {

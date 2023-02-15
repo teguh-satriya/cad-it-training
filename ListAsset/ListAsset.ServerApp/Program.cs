@@ -1,9 +1,8 @@
 using ListAsset.BusinessAccess.Services;
 using ListAsset.DataAccess.Contracts;
+using ListAsset.DataAccess.Data;
 using ListAsset.DataAccess.Models;
 using ListAsset.DataAccess.Repositories;
-using ListAsset.ServerApp.Data;
-using ListAsset.ServerApp.Data.DB;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,13 +13,15 @@ builder.Services.AddServerSideBlazor();
 
 #region Connection String
 var connectionString = builder.Configuration.GetConnectionString("AssetDbConn");
-builder.Services.AddDbContext<ServerDbContext>(item => item.UseSqlServer(connectionString));
+builder.Services.AddDbContext<AssetDbContext>(item => item.UseSqlServer(connectionString));
 #endregion
 
 builder.Services.AddSingleton<WeatherForecastService>();
-builder.Services.AddScoped<AssetServerService>();
+builder.Services.AddScoped<IRepository<Asset>, RepositoryAsset>();
+builder.Services.AddScoped<AssetService>();
 
-
+builder.Services.AddScoped<IRepository<Country>, RepositoryCountry>();
+builder.Services.AddScoped<CountryService>();
 
 var app = builder.Build();
 

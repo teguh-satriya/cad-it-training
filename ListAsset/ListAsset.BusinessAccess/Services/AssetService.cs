@@ -1,10 +1,5 @@
 ﻿using ListAsset.DataAccess.Contracts;
 using ListAsset.DataAccess.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ListAsset.BusinessAccess.Services
 {
@@ -16,11 +11,65 @@ namespace ListAsset.BusinessAccess.Services
             _repository = repository;
         }
 
-        public IEnumerable<Asset> GetAll()
+        public async Task<Asset?> GetAsset(Guid id)
+        {
+            var items = await _repository.GetById(id);
+
+            return items;
+        }
+
+        public async Task<Asset> CreateAsset(Asset asset)
+        {
+            asset.AssetId = Guid.NewGuid();
+
+            await _repository.Create(asset);
+
+            return asset;
+        }
+
+        public async Task<Asset> UpdateAsset(Asset? asset)
         {
             try
             {
-                return _repository.GetAll().ToList();
+                if(asset == null)
+                    throw new Exception("Item not exist");
+
+                await _repository.Update(asset);
+            }
+            catch
+            {
+                throw;
+            }
+
+            return asset;
+        }
+
+        public async Task<Asset> DeleteAsset(Guid id)
+        {
+            var itemToDelete = await _repository.GetById(id);
+
+            if (itemToDelete == null)
+            {
+                throw new Exception("Item no longer available");
+            }
+
+            try
+            {
+                _repository.Delete(itemToDelete);
+            }
+            catch
+            {
+                throw;
+            }
+
+            return itemToDelete;
+        }
+
+        public async Task<List<Asset>> ListAssets()
+        {
+            try
+            {
+                return await _repository.GetAll();
             }
             catch (Exception)
             {

@@ -10,8 +10,8 @@ namespace ListAsset.DataAccess.Contracts
     {
         public Task<T> Create(T _object);
         public void Delete(T _object);
-        public void Update(T _object);
-        public IEnumerable<T> GetAll();
-        public T GetById(Guid? Id);
+        public Task<T> Update(T _object);
+        public Task<List<T>> GetAll();
+        public Task<T?> GetById(Guid? Id);
     }
 }
