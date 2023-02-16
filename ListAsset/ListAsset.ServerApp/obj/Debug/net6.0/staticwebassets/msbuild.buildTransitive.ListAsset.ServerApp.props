@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\ListAsset.ServerApp.props" />
-</Project>
