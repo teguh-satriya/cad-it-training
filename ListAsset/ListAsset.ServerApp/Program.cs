@@ -4,6 +4,7 @@ using ListAsset.DataAccess.Data;
 using ListAsset.DataAccess.Models;
 using ListAsset.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Radzen;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +23,11 @@ builder.Services.AddScoped<AssetService>();
 
 builder.Services.AddScoped<IRepository<Country>, RepositoryCountry>();
 builder.Services.AddScoped<CountryService>();
+
+builder.Services.AddScoped<DialogService>();
+builder.Services.AddScoped<NotificationService>();
+builder.Services.AddScoped<TooltipService>();
+builder.Services.AddScoped<ContextMenuService>();
 
 var app = builder.Build();
 

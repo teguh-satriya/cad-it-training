@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aE5sjguMch1vjq0VUYN2nSGpS4B53dTfC/cFYxnX0SU=",
+  "Hash": "ub1QZzmAgaDsVFPw8KG97bNtj0aCGqIRIthlBWgtWBs=",
   "Source": "ListAsset.ServerApp",
   "BasePath": "_content/ListAsset.ServerApp",
   "Mode": "Default",
@@ -646,6 +646,23 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Identity": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\css\\dark.css",
+      "SourceId": "ListAsset.ServerApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\",
+      "BasePath": "_content/ListAsset.ServerApp",
+      "RelativePath": "css/dark.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\dark.css"
+    },
+    {
       "Identity": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "ListAsset.ServerApp",
       "SourceType": "Discovered",
@@ -814,6 +831,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\css\\styles.css",
+      "SourceId": "ListAsset.ServerApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\",
+      "BasePath": "_content/ListAsset.ServerApp",
+      "RelativePath": "css/styles.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\css\\styles-generated.css",
+      "SourceId": "ListAsset.ServerApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\",
+      "BasePath": "_content/ListAsset.ServerApp",
+      "RelativePath": "css/styles-generated.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\styles-generated.css"
     },
     {
       "Identity": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\favicon.ico",

@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
+      "Id": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\css\\dark.css",
+      "PackagePath": "staticwebassets\\css\\dark.css"
+    },
+    {
       "Id": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "PackagePath": "staticwebassets\\css\\open-iconic"
     },
@@ -51,6 +55,14 @@
     {
       "Id": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\css\\styles-generated.css",
+      "PackagePath": "staticwebassets\\css\\styles-generated.css"
+    },
+    {
+      "Id": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
     },
     {
       "Id": "C:\\Users\\tswib\\workspace\\cad-it-training\\ListAsset\\ListAsset.ServerApp\\wwwroot\\favicon.ico",
