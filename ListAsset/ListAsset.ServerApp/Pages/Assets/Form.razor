@@ -1,61 +1,73 @@
 ﻿@using ListAsset.DataAccess.Models
 
-<EditForm Model="@Asset" OnValidSubmit="@OnValidSubmit">
-    <div class="form-group">
-        <label>Asset Code :</label>
-        <div>
-            <InputText @bind-Value="@Asset.AssetCode" class="form-control col-sm-3" />
-            <ValidationMessage For="@(() => Asset.AssetCode)" />
-        </div>
+<div class="row" style="bottom: 0; left: 0; margin-left: 15px; margin-right: 0; position: absolute; right: 0; top: 65px">
+    <div class="col-xl-3 col-lg-4 col-md-5 col-sm-8" style="padding-left: 0; padding-right: 0">
+        <RadzenCard style="margin-top: 0;width:500px">
+            <RadzenTemplateForm Data="@Asset" TItem="Asset" Submit="@OnValidSubmit">
+                <ChildContent>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3">
+                            <RadzenLabel Text="Code" Component="AssetCode" style="width: 100%">
+                            </RadzenLabel>
+                        </div>
+                        <div class="col-md-9">
+                            <RadzenTextBox MaxLength="256" style="width: 100%" @bind-Value="@(Asset.AssetCode)" Name="Code">
+                            </RadzenTextBox>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3">
+                            <RadzenLabel Text="Name" Component="AssetName" style="width: 100%">
+                            </RadzenLabel>
+                        </div>
+                        <div class="col-md-9">
+                            <RadzenTextBox MaxLength="256" style="width: 100%" @bind-Value="@(Asset.AssetName)" Name="Name">
+                            </RadzenTextBox>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3">
+                            <RadzenLabel Text="Type" Component="AssetType" style="width: 100%">
+                            </RadzenLabel>
+                        </div>
+                        <div class="col-md-9">
+                            <RadzenTextBox MaxLength="256" style="width: 100%" @bind-Value="@(Asset.AssetType)" Name="Type">
+                            </RadzenTextBox>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3">
+                            <RadzenLabel Text="Quantity" Component="AssetQuantity" style="width: 100%">
+                            </RadzenLabel>
+                        </div>
+                        <div class="col-md-9">
+                            <RadzenNumeric style="width: 100%" @bind-Value="@(Asset.Quantity)" Name="Quantity">
+                            </RadzenNumeric>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 1rem" class="row">
+                        <div class="col-md-3">
+                            <RadzenLabel Text="Country" Component="CountryId" style="width: 100%">
+                            </RadzenLabel>
+                        </div>
+                        <div class="col-md-9">
+                            <RadzenDropDown Data="@Countries" TextProperty="CountryName" ValueProperty="CountryId" Placeholder="Choose Country" style="width: 100%" @bind-Value="@(Asset.CountryId)" Name="CountryId">
+                            </RadzenDropDown>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col offset-sm-3">
+                            <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                            </RadzenButton>
+                        </div>
+                    </div>
+                </ChildContent>
+            </RadzenTemplateForm>
+        </RadzenCard>
     </div>
-    <div class="form-group">
-        <label>Asset Type :</label>
-        <div>
-            <InputText @bind-Value="@Asset.AssetType" class="form-control col-sm-3" />
-            <ValidationMessage For="@(() => Asset.AssetType)" />
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Asset Name :</label>
-        <div>
-            <InputText @bind-Value="@Asset.AssetName" class="form-control col-sm-3" />
-            <ValidationMessage For="@(() => Asset.AssetName)" />
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Quantity :</label>
-        <div>
-            <InputNumber @bind-Value="@Asset.Quantity" class="form-control col-sm-3" />
-            <ValidationMessage For="@(() => Asset.Quantity)" />
-        </div>
-    </div>
-    <div class="form-group">
-        <label>Country :</label>
-        <div>
-            <InputSelect id="department" @bind-Value="@Asset.CountryId" class="form-control col-sm-3">
-                @foreach (var country in Countries)
-                {
-                    <option value="@country.CountryId">@country.CountryName</option>
-                }
-            </InputSelect>
-            <ValidationMessage For="@(() => Asset.CountryId)" />
-        </div>
-    </div>
+</div>
 
-    <div class="form-group">
-        <div>
-            <br/>
-            <button disabled="@Loading" class="btn btn-primary">
-                @if (Loading)
-                {
-                    <span class="spinner-border spinner-border-sm mr-1"></span>
-                }
-                @ButtonText
-            </button>
-        </div>
-    </div>
 
-</EditForm>
 
 @code {
     [Parameter]

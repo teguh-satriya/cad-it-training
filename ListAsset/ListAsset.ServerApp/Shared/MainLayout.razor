@@ -8,23 +8,27 @@
 <RadzenTooltip />
 <RadzenContextMenu />
 
-<RadzenLayout class="rz-shadow-3" style="height: 400px">
+<RadzenLayout class="rz-shadow-3">
     <RadzenHeader>
         <div class="d-flex align-items-center">
             <RadzenSidebarToggle Click="@(() => sidebarExpanded = !sidebarExpanded)" />
-            <RadzenLabel Text="Header" />
+            <RadzenLabel Text="Testing Blazor" />
         </div>
     </RadzenHeader>
     <RadzenSidebar @bind-Expanded="@sidebarExpanded">
         <NavMenu />
     </RadzenSidebar>
     <RadzenBody>
-        <div class="p-2">
-            @Body
-        </div>
+        <ChildContent>
+            <RadzenContentContainer Name="main">
+                @Body
+            </RadzenContentContainer>
+        </ChildContent>
     </RadzenBody>
     <RadzenFooter>
-        Footer
+        <ChildContent>
+            <RadzenLabel Text="Testing App, Copyright Ⓒ 2023"></RadzenLabel>
+        </ChildContent>
     </RadzenFooter>
 </RadzenLayout>
 

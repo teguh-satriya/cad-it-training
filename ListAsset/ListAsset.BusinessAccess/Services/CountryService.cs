@@ -11,11 +11,11 @@ namespace ListAsset.BusinessAccess.Services
             _repository = repository;
         }
 
-        public async Task<List<Country>> ListCountries()
+        public IQueryable<Country> ListCountries()
         {
             try
             {
-                return await _repository.GetAll();
+                return _repository.List();
             }
             catch (Exception)
             {

@@ -24,11 +24,11 @@ namespace ListAsset.DataAccess.Repositories
             this._assetDbContext = context;
         }
 
-        public async Task<List<Country>> GetAll()
+        public IQueryable<Country> List()
         {
             try
             {
-                var obj = await assetDbContext.Countries.ToListAsync();
+                var obj = assetDbContext.Countries;
 
                 return obj;
 
@@ -39,7 +39,7 @@ namespace ListAsset.DataAccess.Repositories
             }
         }
 
-        public async Task<Country?> GetById(Guid? Id)
+        public async Task<Country?> Get(Guid? Id)
         {
             try
             {

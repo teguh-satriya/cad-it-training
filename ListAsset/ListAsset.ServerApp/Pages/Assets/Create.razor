@@ -3,6 +3,8 @@
 @using ListAsset.BusinessAccess.Services
 @inject AssetService AssetService
 @inject CountryService CountryService
+@inject NavigationManager UriHelper
+@attribute [Authorize]
 
 <h1>Create Asset</h1>
 <br/>
@@ -19,7 +21,7 @@
     protected async override Task OnParametersSetAsync()
     {
         countries.Add(new Country { CountryId = Guid.Empty, CountryName = "---- Select Country -----" });
-        var countriesData = await CountryService.ListCountries();
+        var countriesData = CountryService.ListCountries().ToList();
         countries.AddRange(countriesData);
     }
 
@@ -30,6 +32,7 @@
         {
             await AssetService.CreateAsset(asset);
             loading = false;
+            UriHelper.NavigateTo("asset", true);
         }
         catch (Exception ex)
         {

@@ -1,71 +1,81 @@
 ﻿@page "/asset"
-
-<PageTitle>Weather forecast</PageTitle>
-
+@layout MainLayout
+@using Radzen
+@using Radzen.Blazor
 @using ListAsset.DataAccess.Models
 @using ListAsset.BusinessAccess.Services
+@using ListAsset.DataAccess.Data
+
+@inject AssetDbContext AssetDbContext
 @inject AssetService AssetService
+@inject IJSRuntime JSRuntime;
+@inject NavigationManager UriHelper
+@attribute [Authorize]
 
-<h1>Asset</h1>
+<PageTitle>Asset</PageTitle>
 
-<p>Fetch data Asset</p>
+<RadzenContent Container="main">
+    <ChildContent>
+        <RadzenHeading Size="H1" Text="Asset"></RadzenHeading>
+        <div class="row mb-3">
+            <div class="col-md-7">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="add" class="m-1" Click=@(() => CreateAsset()) Text="Create Asset" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" PageSize="5" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+                    Data="@assets" TItem="Asset" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.And">
+                    <Columns>
+                        <RadzenDataGridColumn TItem="Asset" Property="AssetCode" Title="Code" Frozen="true" Width="160px" />
+                        <RadzenDataGridColumn TItem="Asset" Property="AssetName" Title="Name" Frozen="true" Width="160px" />
+                        <RadzenDataGridColumn TItem="Asset" Property="AssetType" Title="Type" Frozen="true" Width="160px" />
+                        <RadzenDataGridColumn TItem="Asset" Property="Quantity" Title="Quantity" Frozen="true" Width="160px" />
+                        <RadzenDataGridColumn Width="160px" TItem="Asset" Property="AssetID" Title="Action" Frozen="true" Sortable="false" Filterable="false">
+                            <Template Context="data">
+                                <RadzenButton ButtonStyle="ButtonStyle.Warning" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="edit" class="m-1" Click=@(() => EditAsset(data.AssetId)) Text="Update" />
+                                <RadzenButton ButtonStyle="ButtonStyle.Danger" Variant="Variant.Flat" Shade="Shade.Lighter" Icon="delete" class="m-1" Click=@(() => DeleteAsset(data)) Text="Delete" />
+                            </Template>
+                        </RadzenDataGridColumn>
+                    </Columns>
+                </RadzenDataGrid>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>
 
-<div class="row mb-3">
-    <div class="col-md-7">  
-       <NavLink href="/asset/create" class="btn btn-sm btn-success mb-2">Add Asset</NavLink>
-    </div>
-</div>
 
-@if (assets == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Code</th>
-                <th>Type</th>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var asset in assets)
-            {
-                <tr>
-                    <td>@asset.AssetCode</td>
-                    <td>@asset.AssetType</td>
-                    <td>@asset.AssetName</td>
-                    <td>@asset.Quantity</td>
-                    <td style="white-space: nowrap">
-                         <NavLink href="@($"/asset/update/{asset.AssetId}")" class="oi oi-pencil text-warning mr-2 nounderline"></NavLink>
 
-                        <button @onclick="@(() => DeleteAsset(asset))" class=" btn btn-link oi oi-trash text-danger mr-1 nounderline">
-                        </button>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
 
 @code {
-    private List<Asset>? assets;
+    private IEnumerable<Asset> assets;
 
 
     protected override async Task OnInitializedAsync()
     {
-        assets = await AssetService.ListAssets();
+        await base.OnInitializedAsync();
+
+        assets = AssetService.ListAssets();
+    }
+
+    private async void CreateAsset()
+    {
+        UriHelper.NavigateTo("asset/create", true);
+    }
+
+    private async void EditAsset(Guid id)
+    {
+        UriHelper.NavigateTo("asset/update/" + id, true);
     }
 
     private async void DeleteAsset(Asset _asset)
     {
-        await AssetService.DeleteAsset(_asset.AssetId);
-        assets = await AssetService.ListAssets();
+        var deleted = await AssetService.DeleteAsset(_asset.AssetId);
 
-        StateHasChanged();
+        if (deleted != null)
+        {
+            assets = AssetService.ListAssets();
+            StateHasChanged();
+        }
     }
 }

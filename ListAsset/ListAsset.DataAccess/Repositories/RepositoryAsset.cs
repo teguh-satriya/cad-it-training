@@ -22,11 +22,11 @@ namespace ListAsset.DataAccess.Repositories
             this._assetDbContext= context;
         }
 
-        public async Task<List<Asset>> GetAll()
+        public IQueryable<Asset> List()
         {
             try
             {
-                var obj = await assetDbContext.Assets.ToListAsync();
+                var obj = assetDbContext.Assets.AsQueryable();
                 
                 return obj;
 
@@ -37,7 +37,7 @@ namespace ListAsset.DataAccess.Repositories
             }
         }
 
-        public async Task<Asset?> GetById(Guid? Id)
+        public async Task<Asset?> Get(Guid? Id)
         {
             try
             {
@@ -75,7 +75,7 @@ namespace ListAsset.DataAccess.Repositories
             }
         }
 
-        public async void Delete(Asset asset)
+        public void Delete(Asset asset)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace ListAsset.DataAccess.Repositories
                     var obj = assetDbContext.Remove(asset);
                     if (obj != null)
                     {
-                        await assetDbContext.SaveChangesAsync();
+                        assetDbContext.SaveChanges();
                     }
                 }
             }

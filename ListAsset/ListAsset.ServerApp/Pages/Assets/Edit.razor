@@ -3,6 +3,8 @@
 @using ListAsset.BusinessAccess.Services
 @inject AssetService AssetService
 @inject CountryService CountryService
+@inject NavigationManager UriHelper
+@attribute [Authorize]
 
 <h1>Edit Asset</h1>
 <br/>
@@ -22,7 +24,7 @@
     protected async override Task OnParametersSetAsync()
     {
         asset = await AssetService.GetAsset(Guid.Parse(Id));
-        countries = await CountryService.ListCountries();
+        countries = CountryService.ListCountries().ToList();
     }
 
     async Task UpdateAsset()
@@ -32,6 +34,7 @@
         {
             await AssetService.UpdateAsset(asset);
             loading = false;
+            UriHelper.NavigateTo("asset", true);
         }
         catch (Exception ex)
         {

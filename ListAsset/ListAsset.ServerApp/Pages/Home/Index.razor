@@ -1,9 +1,149 @@
 ﻿@page "/"
+@page "/home"
+@layout MainLayout
 
-<PageTitle>Index</PageTitle>
+@using Radzen
+@using Radzen.Blazor
+@attribute [Authorize]
 
-<h1>Hello, world!</h1>
+<RadzenContent Container="main">
+    <ChildContent>
+        <RadzenIcon Icon="assessment">
+        </RadzenIcon>
+        <RadzenHeading Size="H1" style="display: inline-block" Text="Blazor CRM Dashboard">
+        </RadzenHeading>
+        <RadzenHeading Size="H2" Text="Monthly Stats">
+        </RadzenHeading>
+        <div class="row">
+            <div class="col-md-12 col-xl-3 col-lg-6">
+                <RadzenCard style="margin-bottom: 16px">
+                    <ChildContent>
+                        <div class="row">
+                            <div class="col-4 align-items-center d-flex">
+                                <RadzenIcon Icon="attach_money" style="background-color: #68d5c8; font-size: 48px; height: 64px; width: 64px">
+                                </RadzenIcon>
+                            </div>
+                            <div class="col-sm-8">
+                                <RadzenHeading Size="H4" style="margin-bottom: 0px; text-align: right" Text="Revenue">
+                                </RadzenHeading>
+                                <RadzenHeading Size="H4" style="color: #88989b; font-size: 12px; margin-bottom: 0px; text-align: right" Text="LAST MONTH">
+                                </RadzenHeading>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenCard>
+            </div>
+            <div class="col-md-12 col-xl-3 col-lg-6">
+                <RadzenCard style="margin-bottom: 16px">
+                    <ChildContent>
+                        <div class="row">
+                            <div class="col-4 align-items-center d-flex">
+                                <RadzenIcon Icon="shopping_cart" style="background-color: #f9777f; font-size: 48px; height: 64px; width: 64px">
+                                </RadzenIcon>
+                            </div>
+                            <div class="col-sm-8">
+                                <RadzenHeading Size="H4" style="margin-bottom: 0px; text-align: right" Text="Opportunities">
+                                </RadzenHeading>
+                                <RadzenHeading Size="H4" style="color: #88989b; font-size: 12px; margin-bottom: 0px; text-align: right" Text="LAST MONTH">
+                                </RadzenHeading>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenCard>
+            </div>
+            <div class="col-md-12 col-xl-3 col-lg-6">
+                <RadzenCard style="margin-bottom: 16px">
+                    <ChildContent>
+                        <div class="row">
+                            <div class="col-4 align-items-center d-flex">
+                                <RadzenIcon Icon="account_balance_wallet" style="background-color: #ff6d41; font-size: 48px; height: 64px; width: 64px">
+                                </RadzenIcon>
+                            </div>
+                            <div class="col-sm-8">
+                                <RadzenHeading Size="H4" style="margin-bottom: 0px; text-align: right" Text="Average deal size">
+                                </RadzenHeading>
+                                <RadzenHeading Size="H4" style="color: #88989b; font-size: 12px; margin-bottom: 0px; text-align: right" Text="LAST MONTH">
+                                </RadzenHeading>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenCard>
+            </div>
+            <div class="col-md-12 col-xl-3 col-lg-6">
+                <RadzenCard style="margin-bottom: 16px">
+                    <ChildContent>
+                        <div class="row">
+                            <div class="col-4 align-items-center d-flex">
+                                <RadzenIcon Icon="thumb_up" style="background-color: #479cc8; font-size: 48px; height: 64px; width: 64px">
+                                </RadzenIcon>
+                            </div>
+                            <div class="col-sm-8">
+                                <RadzenHeading Size="H4" style="margin-bottom: 0px; text-align: right" Text="Win Rate">
+                                </RadzenHeading>
+                                <RadzenHeading Size="H4" style="color: #88989b; font-size: 12px; margin-bottom: 0px; text-align: right" Text="LAST MONTH">
+                                </RadzenHeading>
+                            </div>
+                        </div>
+                    </ChildContent>
+                </RadzenCard>
+            </div>
+        </div>
+        <RadzenHeading Size="H2" Text="Company Performance">
+        </RadzenHeading>
+        <div class="row">
+            <div class="col-md-12 col-lg-6 col-xl-4">
+                <RadzenCard>
+                    <ChildContent>
+                        <RadzenChart ColorScheme="ColorScheme.Pastel">
+                            <ChildContent>
 
-Welcome to your new app.
+                            </ChildContent>
+                        </RadzenChart>
+                    </ChildContent>
+                </RadzenCard>
+            </div>
+            <div class="col-md-12 col-lg-6 col-xl-4">
+                <RadzenCard>
+                    <ChildContent>
+                        <RadzenChart ColorScheme="ColorScheme.Pastel">
+                            <ChildContent>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+                            </ChildContent>
+                        </RadzenChart>
+                    </ChildContent>
+                </RadzenCard>
+            </div>
+            <div class="col-md-12 col-lg-6 col-xl-4">
+                <RadzenCard>
+                    <ChildContent>
+                        <RadzenChart ColorScheme="ColorScheme.Pastel">
+                            <ChildContent>
+
+                            </ChildContent>
+                        </RadzenChart>
+                    </ChildContent>
+                </RadzenCard>
+            </div>
+        </div>
+        <RadzenHeading Size="H2" Text="Pending Work">
+        </RadzenHeading>
+        <div class="row">
+            <div class="col-md-12 col-xl-6">
+                <RadzenCard>
+                    <ChildContent>
+                        
+                    </ChildContent>
+                </RadzenCard>
+            </div>
+            <div class="col-md-12 col-xl-6">
+                <RadzenCard>
+                    <ChildContent>
+                        <RadzenHeading Size="H3" Text="Active Tasks">
+                        </RadzenHeading>
+                        
+                    </ChildContent>
+                </RadzenCard>
+            </div>
+        </div>
+    </ChildContent>
+</RadzenContent>

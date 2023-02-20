@@ -1,5 +1,9 @@
 ﻿using ListAsset.DataAccess.Contracts;
 using ListAsset.DataAccess.Models;
+using Radzen;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Linq.Dynamic.Core;
 
 namespace ListAsset.BusinessAccess.Services
 {
@@ -13,7 +17,7 @@ namespace ListAsset.BusinessAccess.Services
 
         public async Task<Asset?> GetAsset(Guid id)
         {
-            var items = await _repository.GetById(id);
+            var items = await _repository.Get(id);
 
             return items;
         }
@@ -46,7 +50,7 @@ namespace ListAsset.BusinessAccess.Services
 
         public async Task<Asset> DeleteAsset(Guid id)
         {
-            var itemToDelete = await _repository.GetById(id);
+            var itemToDelete = await _repository.Get(id);
 
             if (itemToDelete == null)
             {
@@ -65,11 +69,55 @@ namespace ListAsset.BusinessAccess.Services
             return itemToDelete;
         }
 
-        public async Task<List<Asset>> ListAssets()
+        public IQueryable<Asset> ListAssets(Query query = null)
         {
             try
             {
-                return await _repository.GetAll();
+                var items = _repository.List();
+
+                items = items.Include(i => i.Country);
+
+                if (query != null)
+                {
+                    if (!string.IsNullOrEmpty(query.Expand))
+                    {
+                        var propertiesToExpand = query.Expand.Split(',');
+                        foreach (var p in propertiesToExpand)
+                        {
+                            items = items.Include(p);
+                        }
+                    }
+
+                    if (!string.IsNullOrEmpty(query.Filter))
+                    {
+                        if (query.FilterParameters != null)
+                        {
+                            items = items.Where(query.Filter, query.FilterParameters);
+                        }
+                        else
+                        {
+                            items = items.Where(query.Filter);
+                        }
+                    }
+
+                    if (!string.IsNullOrEmpty(query.OrderBy))
+                    {
+                        items = items.OrderBy(query.OrderBy);
+                    }
+
+                    if (query.Skip.HasValue)
+                    {
+                        items = items.Skip(query.Skip.Value);
+                    }
+
+                    if (query.Top.HasValue)
+                    {
+                        items = items.Take(query.Top.Value);
+                    }
+                }
+
+
+                return items;
             }
             catch (Exception)
             {
